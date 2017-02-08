@@ -1,13 +1,11 @@
 #!/usr/bin/python3
 
 import cmd
-import sys 
+import sys
 
-# TODO: how do we implement EOF? (not implemented by default)
-# TODO: How do you do this non-interactive mode?
 
 class ShellPrompt(cmd.Cmd):
-    intro = 'Welcome to the Holberton AirBnB shell.   Type help or ? to list commands.\n'
+    intro = 'Welcome to the HBnB shell. Type help or ? to list commands.\n'
     prompt = '(hbnb) '
 
     def do_quit(self, args):
