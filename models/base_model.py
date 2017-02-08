@@ -23,4 +23,5 @@ class BaseModel:
         self.updated_at = datetime.datetime.now()
 
     def to_json(self):
-        return json.dumps(self)
+        self.__dict__.update({'__class__': "BaseModel"})
+        return self.__dict__
