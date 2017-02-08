@@ -16,11 +16,16 @@ class FileStorage:
         return self.__objects
     
     def new(self, obj):
-        self.__objects.update(obj.id: None)
+        self.__objects.update({str(obj.id): obj.to_json()})
         
+    # maybe mode='a'
     def save(self):
-        with open('basic.json', mode='w', encoding='utf-8') as myFile:
+        with open(self.__file_path, mode='w', encoding='utf-8') as myFile:
             json.dump(self.__objects, myFile)
-            
+
     def reload(self):
-        json.loads(self.__objects)
+        try:
+            with open(self.__file_path, mode='r', encoding='utf-8') as myFile:
+                json.load(self.__objects, myFile)
+        except FileNotFoundError:
+            pass
