@@ -13,6 +13,7 @@ This will culminate into a complete web application comprised of 4 parts:
 The command interpreter works in both interactive and non-interactive mode. Run the command interpreter by executing `./console.py`.
 ### How to use it
 The following commands have been implemented:
+
 | Command  | Syntax                        |Definition                                    |  
 |:-------: | ------------------------------|----------------|  
 | `help`   |`help [command]`               |to get help about other commands.             |  
