@@ -25,7 +25,6 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.datetime.now()
-        # check this
         storage.save()
 
     def to_json(self):
