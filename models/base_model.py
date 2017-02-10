@@ -6,21 +6,26 @@ common attributes/methods for other classes
 import uuid
 import datetime
 import json
-
+import models
 
 class BaseModel:
     """
     This is the class for BaseModel
     """
-    def __init__(self):
-        self.id = uuid.uuid4()
+    def __init__(self, *args, **kwargs):
+        self.id = str(uuid.uuid4())
         self.created_at = datetime.datetime.now()
+        if isinstance(args, dict):
+            self.__dict__ = args
+        else:
+            models.storage.new(self)
 
     def __str__(self):
         return "[BaseModel] ({}) {}".format(self.id, self.__dict__)
 
     def save(self):
         self.updated_at = datetime.datetime.now()
+        models.storage.save()
 
     def to_json(self):
         self.__dict__.update({'__class__': "BaseModel"})

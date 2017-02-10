@@ -7,7 +7,7 @@ and deserializes JSON file to instances
 import json
 import datetime
 
-json.JSONEncoder.default = lambda self,obj: (obj.isoformat() if isinstance(obj, datetime.datetime) else None)
+json.JSONEncoder.default = lambda self, obj: (obj.isoformat() if isinstance(obj, datetime.datetime) else obj.__dict__)
 
 class FileStorage:
     def __init__(self):
@@ -33,8 +33,8 @@ class FileStorage:
         except FileNotFoundError:
             pass
 
-def serialize(obj):
-#    from datetime import datetime
-    if isinstance(obj, datetime):
-        return obj.isoformat()
-    return obj
+    def serialize(obj):
+    #    from datetime import datetime
+        if isinstance(obj, datetime):
+            return obj.isoformat()
+        return obj
