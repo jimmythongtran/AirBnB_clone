@@ -4,8 +4,8 @@ from models.base_model import BaseModel
 class User(BaseModel):
     """User inherits from BaseModel"""
     def __init__(self, *args, **kwargs):
-        BaseModel.__init__(self, *args, **kwargs)
-        self.email = ""
-        self.password = ""
-        self.first_name = ""
-        self.last_name = ""
+        super().__init__()
+        email = ""
+        password = ""
+        first_name = ""
+        last_name = ""
