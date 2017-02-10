@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-# TODO: Update to allow: show, create, destroy, all - used with User (for number 7)
 
 import cmd
 import sys
 from models.base_model import BaseModel
+from models.user import User
 from models import storage
 
 
@@ -12,7 +12,17 @@ class ShellPrompt(cmd.Cmd):
     prompt = '(hbnb) '
 
     def do_create(self, args):
-        new = BaseModel()
+        args = args.split()
+        if len(args) < 1:
+            print("** class name missing **")
+            return
+        if not usable_class(args[0]):
+            print("** class doesn't exist **")
+            return
+        if args[0] == "BaseModel":
+            new = BaseModel()
+        elif args[0] == "User":
+            new = User()
         new.save()
         print("{}".format(new.id))
 
