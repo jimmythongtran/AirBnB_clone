@@ -20,6 +20,7 @@ class BaseModel:
             self.created_at = datetime.datetime.now()
             storage.new(self)
 
+# TODO: AttributeError: 'User' object has no attribute 'id'
     def __str__(self):
         return "[BaseModel] ({}) {}".format(self.id, self.__dict__)
 
