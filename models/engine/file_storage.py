@@ -37,7 +37,8 @@ class FileStorage:
                             if k == "created_at" or k == "updated_at":
                                 b[key][k] = datetime.datetime.strptime(b[key][k], '%Y-%m-%dT%H:%M:%S.%f')
                 from ..base_model import BaseModel
-                for k in b.keys():
+                for k, v in b.items():
+                    print(b[k])
                     self.__objects[k] = BaseModel(b[k])
         except FileNotFoundError:
             pass
