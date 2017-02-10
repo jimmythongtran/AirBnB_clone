@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+from models.base_model import BaseModel
 
-#TODO: NameError: name 'BaseModel is not defined'
 class User(BaseModel):
     """User inherits from BaseModel"""
     def __init__(self, *args, **kwargs):
