@@ -7,7 +7,7 @@ and deserializes JSON file to instances
 import json
 import datetime
 
-
+# TODO: manage correctly serialization and deserialization of User
 json.JSONEncoder.default = lambda self, obj: (obj.isoformat() if isinstance(obj, datetime.datetime) else obj.__dict__)
 
 class FileStorage:
@@ -19,10 +19,8 @@ class FileStorage:
         return self.__objects
     
     def new(self, obj):
-        #self.__objects.update({str(obj.id): obj.to_json()})
         self.__objects[obj.id] = obj
 
-    # maybe mode='a'
     def save(self):
         with open(self.__file_path, mode='w', encoding='utf-8') as myFile:
             json.dump(self.__objects, myFile)
@@ -43,7 +41,6 @@ class FileStorage:
             pass
 
     def serialize(obj):
-    #    from datetime import datetime
         if isinstance(obj, datetime):
             return obj.isoformat()
         return obj
