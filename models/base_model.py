@@ -12,6 +12,7 @@ class BaseModel:
     """
     This is the class for BaseModel
     """
+    # TypeError: dict must be set to dictionary, not User
     def __init__(self, *args, **kwargs):
         if len(args) > 0:
             self.__dict__ = args[0]

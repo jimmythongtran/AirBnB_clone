@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# TODO: Update to allow: show, create, destroy, all - used with User (for number 7)
 
 import cmd
 import sys
