@@ -35,7 +35,7 @@ class ShellPrompt(cmd.Cmd):
             if not usable_class(args[0]):
                 print("** class doesn't exist **")
                 return
-            print("{}".format(item)) 
+            print("{}".format(item))
         # ADD How do we check if no class exists?
         # If the class name doesn't exist, print ** class doesn't exist **
 
@@ -93,6 +93,7 @@ class ShellPrompt(cmd.Cmd):
         print('')
         raise SystemExit
 
+
 def error_checking(n):
     if n < 1:
         print("** class name missing **")
@@ -102,6 +103,7 @@ def error_checking(n):
         return 1
     return 0
 
+
 def get_instance(ID):
     try:
         item = storage.all()[ID]
@@ -110,8 +112,10 @@ def get_instance(ID):
         return None
     return item
 
+
 def usable_class(a_class):
-    for i in ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]:
+    for i in ["BaseModel", "User", "State", "City",
+              "Amenity", "Place", "Review"]:
         if i == a_class:
             return 1
     return 0
