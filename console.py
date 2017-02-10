@@ -17,11 +17,7 @@ class ShellPrompt(cmd.Cmd):
 
     def do_show(self, args):
         args = args.split()
-        if len(args) < 1:
-            print("** class name missing **")
-            return
-        elif len(args) < 2:
-            print("** instance id missing **")
+        if error_checking(len(args)):
             return
         try:
             print(storage.all()[args[1]])
@@ -31,7 +27,14 @@ class ShellPrompt(cmd.Cmd):
         # If the class name doesn't exist, print ** class doesn't exist **
 
     def do_destroy(self, args):
-        print("We are destroying")
+        args = args.split()
+        if error_checking(len(args)):
+            return
+        try:
+            del(storage.all()[args[1]])
+            storage.save()
+        except:
+            print("** no instance found **")
 
     def do_all(self, args):
         print("We are in all")
@@ -47,6 +50,15 @@ class ShellPrompt(cmd.Cmd):
         """Reached EOF"""
         print('')
         raise SystemExit
+
+def error_checking(n):
+    if n < 1:
+        print("** class name missing **")
+        return 1
+    elif n < 2:
+        print("** instance id missing **")
+        return 1
+    return 0
 
 if __name__ == '__main__':
     ShellPrompt().cmdloop()
