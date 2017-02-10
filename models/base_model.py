@@ -15,6 +15,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         self.id = str(uuid.uuid4())
         self.created_at = datetime.datetime.now()
+        # check this
         if isinstance(args, dict):
             self.__dict__ = args
         else:
@@ -27,7 +28,8 @@ class BaseModel:
 
     def save(self):
         self.updated_at = datetime.datetime.now()
-        storage.save()
+       # check this
+       storage.save()
 
     def to_json(self):
         self.__dict__.update({'__class__': "BaseModel"})
