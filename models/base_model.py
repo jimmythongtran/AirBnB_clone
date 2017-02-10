@@ -6,7 +6,7 @@ common attributes/methods for other classes
 import uuid
 import datetime
 import json
-import models
+from . import storage
 
 class BaseModel:
     """
@@ -18,14 +18,14 @@ class BaseModel:
         if isinstance(args, dict):
             self.__dict__ = args
         else:
-            models.storage.new(self)
+            storage.new(self)
 
     def __str__(self):
         return "[BaseModel] ({}) {}".format(self.id, self.__dict__)
 
     def save(self):
         self.updated_at = datetime.datetime.now()
-        models.storage.save()
+        storage.save()
 
     def to_json(self):
         self.__dict__.update({'__class__': "BaseModel"})
