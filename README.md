@@ -13,10 +13,16 @@ This will culminate into a complete web application comprised of 4 parts:
 The command interpreter works in both interactive and non-interactive mode. Run the command interpreter by executing `./console.py`.
 ### How to use it
 The following commands have been implemented:
+
 | Command  | Syntax                        |Definition                                    |  
 |:-------: | ------------------------------|----------------|  
 | `help`   |`help [command]`               |to get help about other commands.             |  
-| `quit`   |`quit`                         |or `EOF` (end of file) to terminate session.  |
+| `quit`   |`quit`                         |or `EOF` (end of file) to terminate session.   | 
+| `create` |`create ??`                    |creates an object |
+|`show`    |`show ??`                      |prints the string representation of an object|
+| `destroy`|`delete` `ClassName` `id`      |deletes an object|
+|`all`     |`all [ClassName]`              |shows all representations of objects|
+|`update`  |`update [ClassName]`	   |updates attributes of object|
 
 ## Authors
 * **Justin Marsh** [Github](https://github.com/j-tyler) || [LinkedIn](https://www.linkedin.com/in/j-tyler)

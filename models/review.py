@@ -2,11 +2,10 @@
 from models.base_model import BaseModel
 
 
-class User(BaseModel):
+class Review(BaseModel):
     """User inherits from BaseModel"""
     def __init__(self, *args, **kwargs):
         super().__init__()
-        email = ""
-        password = ""
-        first_name = ""
-        last_name = ""
+        place_id = ""  # TODO: it will be the Place.id
+        user_id = ""  # TODO: it will be the User.id
+        text = ""
