@@ -10,14 +10,15 @@ import datetime
 # TODO: manage correctly serialization and deserialization of User
 json.JSONEncoder.default = lambda self, obj: (obj.isoformat() if isinstance(obj, datetime.datetime) else obj.__dict__)
 
+
 class FileStorage:
     def __init__(self):
         self.__file_path = "./file.json"
         self.__objects = {}
-        
+
     def all(self):
         return self.__objects
-    
+
     def new(self, obj):
         self.__objects[obj.id] = obj
 
