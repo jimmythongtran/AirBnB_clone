@@ -114,8 +114,7 @@ def get_instance(ID):
 
 
 def usable_class(a_class):
-    for i in ["BaseModel", "User", "State", "City",
-              "Amenity", "Place", "Review"]:
+    for i in ["BaseModel", "User", "State", "City", "Amenity", "Place", "Review"]:
         if i == a_class:
             return 1
     return 0
