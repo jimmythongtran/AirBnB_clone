@@ -84,6 +84,9 @@ class ShellPrompt(cmd.Cmd):
             setattr(item, args[2], args[3])
             storage.save()
 
+    def emptyline(self):
+        print('', end="")
+
     def do_quit(self, args):
         """Quits the program."""
         raise SystemExit
