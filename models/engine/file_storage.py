@@ -24,7 +24,10 @@ class FileStorage:
 
     def save(self):
         with open(self.__file_path, mode='w', encoding='utf-8') as myFile:
-            json.dump(self.__objects, myFile)
+            jsondict = self.__objects
+            for k, v in jsondict.items():
+                jsondict[k].__dict__.update({'__class__': jsondict[k].__class__.__name__})
+            json.dump(jsondict, myFile)
 
     def reload(self):
         try:
@@ -36,8 +39,24 @@ class FileStorage:
                             if k == "created_at" or k == "updated_at":
                                 b[key][k] = datetime.datetime.strptime(b[key][k], '%Y-%m-%dT%H:%M:%S.%f')
                 from ..base_model import BaseModel
+                from ..amenity import Amenity
+                from ..user import User
+                from ..state import State
+                from ..place import Place
+                from ..review import Review
                 for k, v in b.items():
-                    self.__objects[k] = BaseModel(b[k])
+                    if v['__class__'] == "BaseModel":
+                        self.__objects[k] = BaseModel(b[k])
+                    elif v['__class__'] == "User":
+                        self.__objects[k] = User(b[k]) 
+                    elif v['__class__'] == "State":
+                        self.__objects[k] = State(b[k]) 
+                    elif v['__class__'] == "Place":
+                        self.__objects[k] = Place(b[k]) 
+                    elif v['__class__'] == "Amenity":
+                        self.__objects[k] = Amenity(b[k])
+                    elif v['__class__'] == "Review":
+                        self.__objects[k] = Review(b[k]) 
         except FileNotFoundError:
             pass
 

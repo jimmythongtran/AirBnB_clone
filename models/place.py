@@ -5,7 +5,10 @@ from models.base_model import BaseModel
 class Place(BaseModel):
     """User inherits from BaseModel"""
     def __init__(self, *args, **kwargs):
-        super().__init__()
+        if len(args) > 0:
+            super().__init__(args[0], kwargs)
+        else:
+            super().__init__()
         city_id = ""  # TODO: it will be the City.id
         user_id = ""  # TODO: it will be the User.id
         name = ""

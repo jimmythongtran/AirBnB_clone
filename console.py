@@ -4,6 +4,11 @@ import cmd
 import sys
 from models.base_model import BaseModel
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 from models import storage
 
 
@@ -23,6 +28,16 @@ class ShellPrompt(cmd.Cmd):
             new = BaseModel()
         elif args[0] == "User":
             new = User()
+        elif args[0] == "State":
+            new = State()
+        elif args[0] == "City":
+            new = City()
+        elif args[0] == "Amenity":
+            new = Amenity()
+        elif args[0] == "Place":
+            new = Place()
+        elif args[0] == "Review":
+            new = Review()
         new.save()
         print("{}".format(new.id))
 
@@ -93,7 +108,6 @@ class ShellPrompt(cmd.Cmd):
 
     def do_EOF(self, args):
         """Reached EOF"""
-        print('')
         raise SystemExit
 
 
