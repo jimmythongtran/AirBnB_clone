@@ -99,6 +99,78 @@ class ShellPrompt(cmd.Cmd):
             setattr(item, args[2], args[3])
             storage.save()
 
+    def do_User(self, args):
+        if args == ".all()":
+            self.do_all("User")
+        elif args == ".count()":
+            print(len(User.__dict__))
+        elif args[:5] == ".show":
+            self.do_show("User " + args[7:-2])
+        elif args[:8] == ".destroy":
+            self.do_destroy("User " + args[10:-2])
+        elif args[:7] == ".update":
+            self.do_update("".join("".join(args[9:-2].split("\"")).split(",")))
+
+    def do_State(self, args):
+        if args == ".all()":
+            self.do_all("State")
+        elif args == ".count()":
+            print(len(User.__dict__))
+        elif args[:5] == ".show":
+            self.do_show("State " + args[7:-2])
+        elif args[:8] == ".destroy":
+            self.do_destroy("State " + args[10:-2])
+        elif args[:7] == ".update":
+            self.do_update("State " + "".join("".join(args[9:-2].split("\"")).split(",")))
+
+    def do_City(self, args):
+        if args == ".all()":
+            self.do_all("City")
+        elif args == ".count()":
+            print(len(User.__dict__))
+        elif args[:5] == ".show":
+            self.do_show("City " + args[7:-2])
+        elif args[:8] == ".destroy":
+            self.do_destroy("City " + args[10:-2])
+        elif args[:7] == ".update":
+            self.do_update("City " + "".join("".join(args[9:-2].split("\"")).split(",")))
+
+    def do_Amenity(self, args):
+        if args == ".all()":
+            self.do_all("Amenity")
+        elif args == ".count()":
+            print(len(User.__dict__))
+        elif args[:5] == ".show":
+            self.do_show("Amenity " + args[7:-2])
+        elif args[:8] == ".destroy":
+            self.do_destroy("Amenity " + args[10:-2])
+        elif args[:7] == ".update":
+            self.do_update("Amenity " + "".join("".join(args[9:-2].split("\"")).split(",")))
+
+    def do_Place(self, args):
+        if args == ".all()":
+            self.do_all("Place")
+        elif args == ".count()":
+            print(len(User.__dict__))
+        elif args[:5] == ".show":
+            self.do_show("Place " + args[7:-2])
+        elif args[:8] == ".destroy":
+            self.do_destroy("Place " + args[10:-2])
+        elif args[:7] == ".update":
+            self.do_update("Place " + "".join("".join(args[9:-2].split("\"")).split(",")))
+
+    def do_Review(self, args):
+        if args == ".all()":
+            self.do_all("Review")
+        elif args == ".count()":
+            print(len(User.__dict__))
+        elif args[:5] == ".show":
+            self.do_show("Review " + args[7:-2])
+        elif args[:8] == ".destroy":
+            self.do_destroy("Review " + args[10:-2])
+        elif args[:7] == ".update":
+            self.do_update("Review " + "".join("".join(args[9:-2].split("\"")).split(",")))
+
     def emptyline(self):
         print('', end="")
 
@@ -108,6 +180,7 @@ class ShellPrompt(cmd.Cmd):
 
     def do_EOF(self, args):
         """Reached EOF"""
+        print('')
         raise SystemExit
 
 
