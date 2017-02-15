@@ -10,19 +10,24 @@ from datetime import datetime
 
 
 class TestBaseModel(TestCase):
+    """Testing base model"""
     def test_createModel(self):
+        """create a base model"""
         my_model = BaseModel()
 
     def test_BaseModelAssignment(self):
+        """assign to base model"""
         my_model = BaseModel()
         my_model.aString = "a string"
         my_model.aNumber = 98
 
     def test_BaseModelCreatedAt(self):
+        """making sure datetime objects exists"""
         my_model = BaseModel()
         self.assertEqual(type(datetime.now()), type(my_model.created_at))
 
     def test_BaseModelJSON(self):
+        """test base model JSON"""
         my_model = BaseModel()
         my_jsondict = my_model.__dict__
         my_jsondict['__class__'] = my_model.__class__.__name__
@@ -32,6 +37,7 @@ class TestBaseModel(TestCase):
         
 
     def test_BaseModelPrint(self):
+        """test base model print"""
         my_model = BaseModel()
         expected_print = "[{}] ({}) {}\n".format(my_model.__class__.__name__, my_model.id, my_model.__dict__)
         with patch('sys.stdout', new=StringIO()) as fake_out:
