@@ -4,12 +4,9 @@
     align-items: center;
     justify-content: flex-end;
     text-align: right;
-    min-height: 70px;
-    max-height: 70px;
     width: 100%;
     border: 1px solid #DDDDDD;
     border-radius: 4px;
-    padding: 10px;
     padding-right: 30px;
 }
 
@@ -52,6 +49,11 @@ button:hover {
 }
 
 /*exercise 6*/
+ul li {
+  list-style: none;
+  margin-left: 20px;
+}
+
 .popover {
   position: absolute;
   top: 100%;
@@ -65,12 +67,12 @@ button:hover {
   border: #DDDDDD 1px solid;
   border-radius: 4px;
   padding: 0 30px 30px 30px;
-  margin-top: 10px;
-  margin-left: -11px;
+  margin-top: 0px;
+  margin-left: -1px;
 }
 
 .amenities .popover {
-  margin-left: -2px;
+  margin-left: -1px;
 }
 
 .locations:hover .popover {
