@@ -22,6 +22,7 @@
   padding-left: 30px;
   flex-grow: 1;
   text-align: left;
+  position: relative;
 }
 
 h3 {
@@ -36,7 +37,7 @@ h4 {
 }
 
 button {
-  border:none;
+  border: none;
   border-radius: 4px;
   width: 20%;
   height: 48px;
@@ -53,14 +54,23 @@ button:hover {
 /*exercise 6*/
 .popover {
   position: absolute;
+  top: 100%;
+  right: 0;
+  bottom: auto;
+  left: 0;
   display: none;
   width: inherit;
   font-size: 16px;
-  background-color:#FAFAFA;
+  background-color: #FAFAFA;
   border: #DDDDDD 1px solid;
   border-radius: 4px;
   padding: 0 30px 30px 30px;
-  margin: 0;
+  margin-top: 10px;
+  margin-left: -11px;
+}
+
+.amenities .popover {
+  margin-left: -2px;
 }
 
 .locations:hover .popover {
