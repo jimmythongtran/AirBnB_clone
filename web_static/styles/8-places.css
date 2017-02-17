@@ -1,3 +1,8 @@
+/*added to solve div element hidden beneath footer*/
+.body {
+  padding-bottom: 60px;
+}
+
 .places {
   display: flex;
   flex-wrap: wrap;
@@ -22,9 +27,6 @@
   font-size: 30px;
   text-align: center;
 }
-
-
-/*exercise 8*/
 
 .price_by_night {
   color: #FF5A5F;
@@ -91,4 +93,3 @@
   text-align: left;
   float: left;
 }
-
