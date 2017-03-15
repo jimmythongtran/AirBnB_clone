@@ -1,27 +1,9 @@
 #!/usr/bin/env bash
-#if [ ! -d /data/web_static/releases/test/index.html]; then
-#	sudo mkdir /data/web_static/releases/test/index.html
-#fi;
-
-if [ ! -d /data/]; then
-	mkdir /data/;
-fi;
-	
-if [ ! -d /data/web_static/]; then
-	mkdir /data/web_static/;
-fi;
-
-if [ ! -d /data/web_static/releases/]; then
-	mkdir /data/web_static/releases/;
-fi;
-
-if [ ! -d /data/web_static/shared/]; then
-	mkdir /data/web_static/shared/;
-fi;
-
-if [ ! -d /data/web_static/releases/test/]; then
-	mkdir /data/web_static/releases/test/;
-fi;
-
-find . -type d -exec touch {}/index.html \;
-
+# this sets up web servers for deployment
+sudo mkdir -p /data/web_static/releases/test/index.html
+sudo mkdir -p /data/web_static/shared/
+sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
+chown -R ubuntu:ubuntu /data/
+sed -i "4i location {\n\talias\t/data/web_static/current/;\n}" /etc/nginx/nginx.conf
+echo "Holberton" > /data/web_static/releases/test/index.html
+sudo service nginx restart
