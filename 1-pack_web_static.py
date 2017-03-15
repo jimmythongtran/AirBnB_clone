@@ -11,4 +11,4 @@ from fabric.api import local
 def do_pack():
     file = datetime.now().strftime("%Y%m%d%H%M%S")
     local('mkdir -p versions')
-    local('tar -cvzf versions/web_static_%s.tgz" web_static' % file)
+    local('tar -cvzf versions/web_static_%s.tgz web_static' % file)
