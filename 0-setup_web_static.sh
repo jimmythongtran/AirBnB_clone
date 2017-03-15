@@ -2,7 +2,6 @@
 # this sets up web servers for deployment
 sudo apt-get update
 sudo apt-get install -y nginx
-sudo apt-get install -y curl
 sudo mkdir -p /data/web_static/releases/test/
 sudo mkdir -p /data/web_static/shared/
 sudo ln -fs /data/web_static/releases/test/ /data/web_static/current
