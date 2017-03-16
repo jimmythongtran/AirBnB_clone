@@ -16,6 +16,7 @@ def do_deploy(archive_path):
         isfile(archive_path)
         filename = archive_path.split("/")[-1]
         dirname = "/data/web_static/releases/{}".format(filename.split(".")[0])
+        # uploads archive to /tmp/ directory to web server
         put(archive_path, "/tmp/")
         run("sudo mkdir -p {}".format(dirname))
         run("sudo tar -xzf /tmp/{} -C {}".format(filename, dirname))
