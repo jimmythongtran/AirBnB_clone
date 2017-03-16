@@ -11,10 +11,14 @@ from os.path import isfile
 
 env.hosts = ['54.91.75.76', '52.207.18.140']
 
+
 def do_pack():
     file = datetime.now().strftime("%Y%m%d%H%M%S")
     local('mkdir -p versions')
     local('tar -cvzf versions/web_static_%s.tgz web_static' % file)
+    archive_path = 'versions/web_static_%s.tgz' % file
+    return(archive_path)
+
 
 def do_deploy(archive_path):
     try:
@@ -32,3 +36,10 @@ def do_deploy(archive_path):
         return True
     except Exception:
         return False
+
+    def deploy():
+        archive = do_pack()
+        if not archive:
+            return False
+        deployment = do_deploy(archive)
+        return (deployment)
