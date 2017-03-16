@@ -1,8 +1,6 @@
 #!/usr/bin/python3
-"""
-this creates and distributes an archive to your web servers
-using the function 'deploy'
-"""
+"""this creates and distributes an archive to your web servers
+using the function 'deploy'"""
 
 from datetime import datetime
 from fabric.api import *
@@ -37,9 +35,10 @@ def do_deploy(archive_path):
     except Exception:
         return False
 
-    def deploy():
-        archive = do_pack()
-        if not archive:
-            return False
-        deployment = do_deploy(archive)
-        return (deployment)
+
+def deploy():
+    archive = do_pack()
+    if not archive:
+        return False
+    deployment = do_deploy(archive)
+    return (deployment)
